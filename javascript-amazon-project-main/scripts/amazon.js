@@ -1,3 +1,6 @@
+import {cart} from '../data/cart.js';
+// take variable cart out of the file cart.js 
+//.. means to go uot of the file
 let productsHTML = '';
 
 products.forEach((product) => {
