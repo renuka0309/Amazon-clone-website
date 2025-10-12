@@ -1,4 +1,5 @@
 import {cart} from '../data/cart.js';
+import {products} from '../data/products.js';
 // take variable cart out of the file cart.js 
 //.. means to go uot of the file
 let productsHTML = '';
