@@ -5,6 +5,7 @@ import { fromatCurrency } from './utils/money.js';
 //.. means to go uot of the file
 let productsHTML = '';
 
+
 products.forEach((product) => {
    productsHTML += `
         <div class="product-container">
@@ -75,7 +76,7 @@ document.querySelectorAll('.js-add-to-cart')
   .forEach((button) => {
       button.addEventListener('click',()=>{
       const productId = button.dataset.productId;
-      addToCart();
+      addToCart(productId);
       updateCartQuantity();         
   });
 });
