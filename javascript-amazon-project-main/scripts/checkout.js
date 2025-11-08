@@ -4,7 +4,7 @@
 //renderPaymentSummary();
 import dayjs from 'https://unpkg.com/dayjs@1.11.10/esm/index.js';
 import { deliveryOptions } from '../data/deliveryOptions.js';
-import {cart} from '../data/cart.js';
+import {cart, removeFromCart} from '../data/cart.js';
 import {products} from '../data/products.js';
 //import {formatCurrency} from './utils/money.js';
 
@@ -46,7 +46,8 @@ cart.forEach((cartItem) => {
                   <span class="update-quantity-link link-primary">
                     Update
                   </span>
-                  <span class="delete-quantity-link link-primary">
+                  <span class="delete-quantity-link link-primary
+                  js-delete-link" data-product-id="${matchingProduct.id}">
                     Delete
                   </span>
                 </div>
@@ -102,6 +103,15 @@ cart.forEach((cartItem) => {
 });
 
 document.querySelector('.js-order-summary').innerHTML = cartSummaryHTML;
+
+document.querySelectorAll('.js-delete-link')
+  .forEach((link)=>{
+     link.addEventListener('click',()=>{
+       const productId = link.dataset.productId;  //to access data attribute
+       removeFromCart(productId);
+       console.log(cart);
+     });
+  });
 
 const today = dayjs();
 const deliveryDate = today.add(7, 'days')
