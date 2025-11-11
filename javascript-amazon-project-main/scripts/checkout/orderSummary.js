@@ -7,7 +7,7 @@ import {deliveryOptions, getDeliveryOption} from '../../data/deliveryOptions.js'
 import {cart, removeFromCart, updateDeliveryOption} from '../../data/cart.js';
 import {products, getProduct} from '../../data/products.js';
 import {fromatCurrency} from '../utils/money.js';
-
+import { renderPaymentSummary } from './paymentSummary.js';
 
 export function renderOrderSummary(){
 
@@ -86,16 +86,11 @@ document.querySelectorAll('.js-delete-link')
         `.js-cart-item-container-${productId}`
        );
        container.remove();
+
+       renderPaymentSummary();
      });
   });
-
-/*const today = dayjs();
-const deliveryDate = today.add(7, 'days')
-const formatedDate = deliveryDate.format('dddd, MMMM D');
-console.log(formatedDate);*/
-
  
-
 function deliveryOptionsHTML(matchingProduct, cartItem){
   let html = '';
 
@@ -144,6 +139,7 @@ document.querySelectorAll('.js-delivery-option')
       const {productId, deliveryOptionId} = element.dataset;
       updateDeliveryOption(productId, deliveryOptionId);
       renderOrderSummary();
+      renderPaymentSummary();
     });
   });
 }
