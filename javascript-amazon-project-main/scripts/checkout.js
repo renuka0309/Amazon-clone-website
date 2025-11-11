@@ -8,6 +8,9 @@ import {cart, removeFromCart, updateDeliveryOption} from '../data/cart.js';
 import {products} from '../data/products.js';
 import {fromatCurrency} from './utils/money.js';
 
+
+function renderOrderSummary(){
+
 let cartSummaryHTML = '';
 
 cart.forEach((cartItem) => {
@@ -90,6 +93,7 @@ document.querySelectorAll('.js-delete-link')
      link.addEventListener('click',()=>{
        const productId = link.dataset.productId;  //to access data attribute
        removeFromCart(productId);
+
       const container = document.querySelector(
         `.js-cart-item-container-${productId}`
        );
@@ -97,10 +101,10 @@ document.querySelectorAll('.js-delete-link')
      });
   });
 
-const today = dayjs();
+/*const today = dayjs();
 const deliveryDate = today.add(7, 'days')
 const formatedDate = deliveryDate.format('dddd, MMMM D');
-console.log(formatedDate);
+console.log(formatedDate);*/
 
  
 
@@ -151,5 +155,9 @@ document.querySelectorAll('.js-delivery-option')
     element.addEventListener('click', ()=>{
       const {productId, deliveryOptionId} = element.dataset;
       updateDeliveryOption(productId, deliveryOptionId);
+      renderOrderSummary();
     });
   });
+}
+
+renderOrderSummary();
