@@ -1,4 +1,9 @@
-export let cart = JSON.parse(localStorage.getItem('cart'));
+export let cart;
+
+loadFromStorage();
+
+export function loadFromStorage(){
+  cart = JSON.parse(localStorage.getItem('cart'));
 //when we first use website localstorage gives null so ,we can save default values.
 
 if(!cart){   //if cart is empty we give default value
@@ -11,6 +16,7 @@ if(!cart){   //if cart is empty we give default value
   quantity: 1,
   deliveryOptionId: '2'
 }];
+}
 }
 
 cart = cart.filter(item => item && item.productId);
