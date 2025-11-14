@@ -39,14 +39,17 @@ describe('test suite: addToCart', ()=>{
   });
  });
 
-
- //if function is not returning anything then you need to call it.
+/*
+****About Testing***
+1.if function is not returning anything then you need to call it.
     
-  //here it fails because local storage have 2 default items within it.
+2.here it fails because local storage have 2 default items within it.
  
 
-//Test coverage : how much of the code is being tested.
-//Flaky Test : test that sometimes passes and sometimes fails.
-//To tackel the Flakey Test we can use MOCK.
-//spyOn('localStorage, 'getItem')  :  localStorage is the object that we want to mack and grtItem is the function that we want to mock.
-//inside spyOn function the code will override the Mock function.It does what we want to it to do.
+3. Test coverage : how much of the code is being tested.
+4. Flaky Test : test that sometimes passes and sometimes fails.
+5. To tackel the Flakey Test we can use MOCK.
+6. spyOn('localStorage, 'getItem')  :  localStorage is the object that we want to mack and grtItem is the function that we want to mock.
+7. inside spyOn function the code will override the Mock function.It does what we want to it to do.
+8. Integration Test : tests many units/pieces of code working together.
+*/
