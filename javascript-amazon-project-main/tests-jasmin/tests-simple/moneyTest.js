@@ -1,4 +1,4 @@
-import {fromatCurrency} from '../scripts/utils/money.js';
+import {fromatCurrency} from '../../scripts/utils/money.js';
 
 if(fromatCurrency(2095)==='20.95'){   //basic test case
     console.log('passed');    
