@@ -1,14 +1,14 @@
 class Cart{
    cartItems;
-   localStorageKey;
+   #localStorageKey;        //Private property.
 
    constructor(localStorageKey) {
-     this.localStorageKey = localStorageKey;
-     this.loadFromStorage();
+     this.#localStorageKey = localStorageKey;
+     this.#loadFromStorage();
    }
 
-   loadFromStorage(){
-  this.cartItems = JSON.parse(localStorage.getItem(this.localStorageKey));
+   #loadFromStorage(){         //Private method.
+  this.cartItems = JSON.parse(localStorage.getItem(this.#localStorageKey));
                                //when we first use website localstorage gives null so ,we can save default values.
 
         if(!this.cartItems){   //if cart is empty we give default value
@@ -26,7 +26,7 @@ class Cart{
 
     //setItem() takes two strings
  saveToStorage(){
-  localStorage.setItem(this.localStorageKey, JSON.stringify(this.cartItems));
+  localStorage.setItem(this.#localStorageKey, JSON.stringify(this.cartItems));
 }
 
 //add to cart
