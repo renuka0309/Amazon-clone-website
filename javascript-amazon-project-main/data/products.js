@@ -57,6 +57,12 @@ class Clothing extends Product{   //inherit properties and methods FROM parent c
   }
 }
 
+/** "this" lets an object access its own properties.*
+ *   using function .call() we can change "this" to whatever we want.
+ *   Arrow function do not change the value of "this".
+ *   "this" keeps the value that it had outside the arrow function.
+*/
+
 export const products = [
  {
     id: "e43638ce-6aa0-4b85-b27f-e1d07eb678c6",
