@@ -34,6 +34,27 @@ class Product{
   getPrice(){
     return `$${fromatCurrency(this.priceCents)}`
   }
+
+  extraInfoHTML(){
+    return '';
+  }
+}
+
+class Clothing extends Product{   //inherit properties and methods FROM parent class.
+  sizeChartLink;                  
+
+  constructor(productDetails){
+    super(productDetails);        //calls constructor of parent class.If we dont call constructor by default it calls constructor of parent class.
+    this.sizeChartLink = productDetails.sizeChartLink;
+  }
+
+  extraInfoHTML(){      //method overloading
+    return `
+      <a href="${this.sizeChartLink}" target="_blank">
+        Size chart
+      </a>
+    `;
+  }
 }
 
 export const products = [
@@ -80,7 +101,7 @@ export const products = [
       "apparel",
       "mens"
     ],
-    type: "clothing",
+    type: "clothing",         //type is discriminator property.It tells what type of product it is.
     sizeChartLink: "images/clothing-size-chart.png"
   },
   {
@@ -695,7 +716,10 @@ export const products = [
       "mens"
     ]
   }
-].map((productDetails)=>{           //transforming each of regular objects
+].map((productDetails)=>{            //transforming each of regular objects
+    if(productDetails.type === 'clothing'){
+      return new Clothing(productDetails);  
+    }
  return new Product(productDetails); // into a class
 });
 
