@@ -63,6 +63,28 @@ class Clothing extends Product{   //inherit properties and methods FROM parent c
  *   "this"j keeps the value that it had outside the arrow function.
 */
 
+export let products = [];
+
+export function loadProducts(fun){
+  const xhr=new XMLHttpRequest();
+
+  xhr.addEventListener('load', ()=>{
+    products=JSON.parse(xhr.response).map((productDetails)=>{            //transforming each of regular objects
+    if(productDetails.type === 'clothing'){
+      return new Clothing(productDetails);  
+    }
+      return new Product(productDetails); // into a class
+      });
+      console.log('load products');
+
+      fun();
+  });
+
+  xhr.open('GET', 'https://supersimplebackend.dev/products');
+  xhr.send();
+}
+
+/*
 export const products = [
  {
     id: "e43638ce-6aa0-4b85-b27f-e1d07eb678c6",
@@ -728,5 +750,5 @@ export const products = [
     }
  return new Product(productDetails); // into a class
 });
-
+*/
 

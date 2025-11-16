@@ -1,10 +1,12 @@
 import {cart, addToCart} from '../data/cart.js';
-import {products} from '../data/products.js';
+import {products, loadProducts} from '../data/products.js';
 import { fromatCurrency } from './utils/money.js';
 // take variable cart out of the file cart.js 
 //.. means to go uot of the file
-let productsHTML = '';
+loadProducts(renderProductsGrid);
 
+function renderProductsGrid(){
+let productsHTML = '';
 
 products.forEach((product) => {
    productsHTML += `
@@ -82,5 +84,6 @@ document.querySelectorAll('.js-add-to-cart')
       updateCartQuantity();         
   });
 });
+}
 
 
