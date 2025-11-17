@@ -61,9 +61,29 @@ class Clothing extends Product{   //inherit properties and methods FROM parent c
  *   using function .call() we can change "this" to whatever we want.
  *   Arrow function do not change the value of "this".
  *   "this"j keeps the value that it had outside the arrow function.
+ *   fetch() => by default it has GET request. It uses promise rather than callback.
+ *   response.json() is asynchronous and returns promise.
 */
 
 export let products = [];
+
+export function loadProductsFetch(){
+  const promise=fetch('https://supersimplebackend.dev/products')
+  .then((response)=>{
+   return response.json();
+  }).then((productsData)=>{
+   products=productsData.map((productDetails)=>{            //transforming each of regular objects
+    if(productDetails.type === 'clothing'){
+      return new Clothing(productDetails);  
+    }
+      return new Product(productDetails); // into a class
+      });
+      console.log('load products');
+
+  });
+  return promise;
+}
+
 
 export function loadProducts(fun){
   const xhr=new XMLHttpRequest();
