@@ -1,4 +1,4 @@
-import {cart} from '../../data/cart.js';
+import {cart, resetCart} from '../../data/cart.js';
 import { getProduct } from '../../data/products.js';
 import {getDeliveryOption} from '../../data/deliveryOptions.js';
 import {fromatCurrency} from '../utils/money.js'
@@ -59,7 +59,7 @@ export function renderPaymentSummary(){
       .innerHTML = paymentSummaryHTML;
 
       document.querySelector('.js-place-order')
-        .addEventListener('click',async ()=>{
+        .addEventListener('click', async ()=>{
           try{
            const response=await fetch('https://supersimplebackend.dev/orders',{
             method: 'POST',
@@ -78,7 +78,8 @@ export function renderPaymentSummary(){
           }
          
           //window.location is js object which lets change the url.
-          window.location.href = 'orders.html';
+          resetCart();
+           window.location.href = 'orders.html';
         });
 }
 
