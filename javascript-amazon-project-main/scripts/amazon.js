@@ -1,6 +1,6 @@
 import {cart, addToCart} from '../data/cart.js';
 import {products, loadProducts} from '../data/products.js';
-import { fromatCurrency } from './utils/money.js';
+import {fromatCurrency} from './utils/money.js';
 // take variable cart out of the file cart.js 
 //.. means to go uot of the file
 loadProducts(renderProductsGrid);
@@ -8,7 +8,18 @@ loadProducts(renderProductsGrid);
 function renderProductsGrid(){
 let productsHTML = '';
 
-products.forEach((product) => {
+const url = new URL(window.location.href);
+const search = url.searchParams.get('search');
+
+let filteredProducts = products;
+
+if(search){
+  filteredProducts=products.filter((product)=>{
+    return product.name.toLowerCase().includes(search.toLowerCase());
+  });
+}
+
+filteredProducts.forEach((product) => {
    productsHTML += `
         <div class="product-container">
           <div class="product-image-container">
@@ -84,6 +95,10 @@ document.querySelectorAll('.js-add-to-cart')
       updateCartQuantity();         
   });
 });
+
+document.querySelector('.js-search-button')
+ .addEventListener('click',()=>{
+   const search=document.querySelector('.js-search-bar').value;
+   window.location.href=`amazon.html?search=${search}`;
+ });
 }
-
-

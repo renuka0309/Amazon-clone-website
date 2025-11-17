@@ -3,6 +3,9 @@
   <head>
     <title>Amazon Project</title>
 
+    <!-- This code is needed for responsive design to work.
+      (Responsive design = make the website look good on
+      smaller screen sizes like a phone or a tablet). -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- Load a font called Roboto from Google Fonts. -->
@@ -27,9 +30,9 @@
       </div>
 
       <div class="amazon-header-middle-section">
-        <input class="search-bar" type="text" placeholder="Search">
+        <input class="search-bar js-search-bar" type="text" placeholder="Search">
 
-        <button class="search-button">
+        <button class="search-button js-search-button">
           <img class="search-icon" src="images/icons/search-icon.png">
         </button>
       </div>
@@ -47,18 +50,12 @@
         </a>
       </div>
     </div>
-    
+
     <div class="main">
-      <div class="products-grid js-products-grid"> 
-        <!--here all products info is updated from javascript-->
+      <div class="products-grid js-products-grid">
       </div>
     </div>
 
-    
-<!--entry point-->
-<script type="module" src="scripts/amazon.js"></script>
-
+    <script type="module" src="scripts/amazon.js"></script>
   </body>
 </html>
-
-
