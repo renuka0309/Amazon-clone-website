@@ -46,9 +46,10 @@ The project includes dynamic product loading, search, cart management, order pag
 
 📸 Screenshots  
 
-![Home Page](./images/home_page.png)  
-![Orders Page](./images/orders_page.png)  
-![Cart Page](./images/cart_page.png)  
-![Order Tracking Page](./images/order_tracking_page.png)
+![Home Page](./javascript-amazon-project-main/images/home_page.png)  
+![Orders Page](./javascript-amazon-project-main/images/orders_page.png)  
+![Cart Page](./javascript-amazon-project-main/images/cart_page.png)  
+![Order Tracking Page](./javascript-amazon-project-main/images/order_tracking_page.png)
+
 
 
