@@ -44,5 +44,11 @@ The project includes dynamic product loading, search, cart management, order pag
    . Day.js	Date formatting
    . Fetch API	Load data dynamically
 
+📸 Screenshots  
+
+![Home Page](./images/home_page.png)  
+![Orders Page](./images/orders_page.png)  
+![Cart Page](./images/cart_page.png)  
+![Order Tracking Page](./images/order_tracking_page.png)
 
 
